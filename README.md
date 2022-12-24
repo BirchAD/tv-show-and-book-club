@@ -1,1 +1,10 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+## A Rails Web Application
+Users can:
+  * Create a club
+  * Invite friends to the club
+  * Nominate a book and/or TV show
+  * Update their own and track others progress on the nominated book and TV show
+  * Organise meetups and access directions via mapbox
+
+## Current Schema
+![Schema](https://res.cloudinary.com/dm6g22zui/image/upload/v1671545641/dslmms1rbdensvijcriu.png)
