@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :username, presence: true, length: { in: 3..10 }
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
