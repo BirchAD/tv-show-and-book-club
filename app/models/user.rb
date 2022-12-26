@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { in: 3..10 }
   validates :first_name,
+            :last_name,
             presence: true,
             format: { with: /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/,
                       message: 'only allows letters and one space after a letter' },
