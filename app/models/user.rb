@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :username, presence: true, length: { in: 3..10 }
+  validates :first_name,
+            :last_name,
+            presence: true,
+            format: { with: /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/,
+                      message: 'only allows letters and one space after a letter' },
+            length: { maximum: 25 }
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
