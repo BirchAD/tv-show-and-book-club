@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Create a TV and book club with your <strong> friends</strong> and <strong>get in sync</strong>!</h1>
     <% if user_signed_in? %>
-      <%= link_to "Create a club!", new_user_registration_path, class: "btn btn-flat" %>
+      <%= link_to "Create a club!", new_club_path, class: "btn btn-flat" %>
     <% else %>
       <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-flat" %>
     <% end %>
