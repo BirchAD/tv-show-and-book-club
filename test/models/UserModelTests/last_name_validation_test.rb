@@ -6,43 +6,39 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:valid_user)
   end
 
-  test 'user should be valid' do
-    assert @user.valid?
-  end
-
   test 'invalid without last_name' do
     @user.last_name = ""
-    refute @user.valid?, 'last_name valid is last_name is empty'
+    assert_not @user.valid?, 'last_name valid is last_name is empty'
     assert_not_nil @user.errors[:last_name], 'no validation error for last_name present'
   end
 
-  test 'invalid if first name contains numbers' do
+  test 'invalid if last name contains numbers' do
     @user.last_name = '1'
-    refute @user.valid?, 'first name valid if contains numbers'
-    assert_not_nil @user.errors[:last_name], 'no validation error for first name contains numbers'
+    assert_not @user.valid?, 'last name valid if contains numbers'
+    assert_not_nil @user.errors[:last_name], 'no validation error for last name contains numbers'
   end
 
-  test 'invalid if first name contains symbols' do
+  test 'invalid if last name contains symbols' do
     @user.last_name = '*'
-    refute @user.valid?, 'first name valid if contains symbols'
-    assert_not_nil @user.errors[:last_name], 'no validation error for first name contains numbers'
+    assert_not @user.valid?, 'last name valid if contains symbols'
+    assert_not_nil @user.errors[:last_name], 'no validation error for last name contains numbers'
   end
 
-  test 'valid if only one space after a letter' do
+  test 'valid if only one space after a letter in last names' do
     @user.last_name = "John Jane"
-    assert @user.valid?, 'first name valid if contains one space after a letter'
+    assert @user.valid?, 'last name valid if contains one space after a letter'
     assert_not_nil @user.errors[:last_name], 'no validation error if one space after a letter'
   end
 
-  test 'invalid if more than one space after a letter' do
+  test 'invalid if more than one space after a letter in last names' do
     @user.last_name = "Jane  John"
-    refute @user.valid?, 'first name valid if a first name has more than one space after a letter'
+    assert_not @user.valid?, 'last name valid if a last name has more than one space after a letter'
     assert_not_nil @user.errors[:last_name], 'no validation error if more than one space after a letter'
   end
 
-  test 'invalid if over 25 characters' do
+  test 'invalid if last name over 25 characters' do
     @user.last_name = 'a' * 26
-    refute @user.valid?, 'first name valid if over 25 characters'
-    assert_not_nil @user.errors[:last_name], 'no validation errors if first name over 25 characters'
+    assert_not @user.valid?, 'last name valid if over 25 characters'
+    assert_not_nil @user.errors[:last_name], 'no validation errors if last name over 25 characters'
   end
 end
