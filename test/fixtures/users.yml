@@ -3,7 +3,7 @@ valid_user:
       last_name: 'Doe'
       username: 'JohnD'
       email: 'JD@test.com'
-
+      encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 same_username:
       first_name: 'John'
       last_name: 'Doe'
