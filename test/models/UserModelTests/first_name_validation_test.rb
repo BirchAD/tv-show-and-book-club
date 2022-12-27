@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:valid_user)
   end
 
-  test 'user should be valid' do
+  test 'first name user test should be valid' do
     assert @user.valid?
   end
 
@@ -40,7 +40,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not_nil @user.errors[:first_name], 'no validation error if more than one space after a letter'
   end
 
-  test 'invalid if over 25 characters' do
+  test 'invalid if first name over 25 characters' do
     @user.first_name = 'a' * 26
     assert_not @user.valid?, 'first name valid if over 25 characters'
     assert_not_nil @user.errors[:first_name], 'no validation errors if first name over 25 characters'

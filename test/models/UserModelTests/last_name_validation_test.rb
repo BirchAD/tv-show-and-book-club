@@ -6,6 +6,10 @@ class UserTest < ActiveSupport::TestCase
     @user = users(:valid_user)
   end
 
+  test 'last name user test should be valid' do
+    assert @user.valid?
+  end
+
   test 'invalid without last_name' do
     @user.last_name = ""
     assert_not @user.valid?, 'last_name valid is last_name is empty'
