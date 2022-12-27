@@ -14,14 +14,18 @@ class LandingPagesTest < ApplicationSystemTestCase
     assert_selector "a", text: "Login"
   end
 
-  test "User can login" do
-    visit new_user_session_path
-    fill_in "Email", with: @user.email
-    fill_in "Password", with: 'password'
-    click_button "Log In"
+  test "User can login and sign up / login buttons won't be visible" do
+    user_login
     assert_selector "a", text: "Messages"
     assert_selector "a", text: "Home"
     assert_no_selector "a", text: "Login"
     assert_no_selector "a", text: "Sign Up"
+  end
+
+  def user_login
+    visit new_user_session_path
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: 'password'
+    click_button "Log In"
   end
 end
