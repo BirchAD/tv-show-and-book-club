@@ -1,5 +1,11 @@
 valid_user:
-      first_name: John
-      last_name: Doe
-      username: JohnD
-      email: JD@test.com
+      first_name: 'John'
+      last_name: 'Doe'
+      username: 'JohnD'
+      email: 'JD@test.com'
+
+same_username:
+      first_name: 'John'
+      last_name: 'Doe'
+      username: ''
+      email: 'JonDoe@test.com'
