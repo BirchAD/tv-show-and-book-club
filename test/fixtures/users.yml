@@ -10,3 +10,10 @@ same_username:
       last_name: 'Doe'
       username: ''
       email: 'JonDoe@test.com'
+
+second_user:
+      first_name: 'Jane'
+      last_name: 'Doe'
+      username: 'JaneD'
+      email: 'janed@test.com'
+      encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
