@@ -12,6 +12,7 @@ class ClubsTest < ApplicationSystemTestCase
     assert_current_path new_club_path
     fill_in "Name", with: "The Crew"
     click_on "Start Your Club"
+    assert_text "The Crew"
   end
 
   test 'a user not logged in should not be able to access create a new club' do
