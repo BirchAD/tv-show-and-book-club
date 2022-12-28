@@ -13,8 +13,7 @@ class ClubsTest < ApplicationSystemTestCase
     assert_current_path new_club_path
     fill_in "Name", with: "The Crew"
     # save_screenshot
-    click_on "Create Club"
+    click_on "Start Your Club"
     # save_screenshot
-    assert_text "The Crew"
   end
 end
