@@ -1,7 +1,3 @@
 valid_club:
   name: "the crew"
   user: valid_user
-
-test_club:
-  name: "test club"
-  user: another_user

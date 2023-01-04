@@ -22,5 +22,17 @@ describe Club do
       @club.save
       _(@club.users.count).must_equal 1
     end
+
+    it "creates a membership and returns the correct membership count" do
+      Membership.create!(club: @club, user: users(:second_user))
+      _(@club.memberships.count).must_equal 2
+      _(@club.memberships.last.user).must_equal users(:second_user)
+    end
+
+    it "creates a membership and returns the correct user count" do
+      Membership.create!(club: @club, user: users(:second_user))
+      _(@club.users.count).must_equal 2
+      _(@club.users.first).must_equal users(:second_user)
+    end
   end
 end
