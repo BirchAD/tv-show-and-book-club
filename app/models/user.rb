@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :clubs, through: :memberships
+
+  has_many :memberships
+
   validates :username,
             presence: true,
             length: { in: 3..10 },
