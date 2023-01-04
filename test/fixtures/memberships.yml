@@ -1,0 +1,7 @@
+membership_one:
+  club: valid_club
+  user: second_user
+
+membership_two:
+  club: valid_club
+  user: third_user

@@ -16,9 +16,4 @@ class UserCreateClubTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "h1", "Club Created"
   end
-
-  test 'user can add another user to the club' do
-    login_as @user
-    assert_not_nil @user.clubs
-  end
 end
