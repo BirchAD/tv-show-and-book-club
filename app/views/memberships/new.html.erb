@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Add A Friend To Your Club</h1>
+  <%= simple_form_for [@club, @membership] do |f| %>
+    <%= f.input :user, :label => "User's E-mail" %>
+    <%= f.submit "Add To Your Club" %>
+  <% end %>
+</div>
