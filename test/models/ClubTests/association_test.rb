@@ -9,7 +9,7 @@ describe Club do
     end
 
     it "has many users through memberships" do
-      (club.users).must_be_kind_of ActiveRecord::Associations::CollectionProxy
+      _(club.users).must_be_kind_of ActiveRecord::Associations::CollectionProxy
     end
   end
 end
