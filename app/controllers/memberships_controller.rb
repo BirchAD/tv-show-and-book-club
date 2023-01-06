@@ -10,7 +10,7 @@ class MembershipsController < ApplicationController
     @membership.user = User.find_by(email: membership_params[:user])
     @membership.club = @club
     if @membership.save!
-      redirect_to club_path(@club), notice: 'The user was added to the club'
+      redirect_to club_path(@club), notice: "#{@membership.user.username} was added to the club"
     else
       render :new, status: :unprocessable_entity, notice: 'The user was not added to the club.'
     end
