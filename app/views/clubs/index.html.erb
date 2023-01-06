@@ -1,0 +1,10 @@
+<div>
+  <h1>Your Clubs</h1>
+  <div class="cards">
+    <% @clubs.each do |club| %>
+      <div class="card">
+        <h4> <%= club.name %> </h4>
+      </div>
+    <% end %>
+  </div>
+</div>

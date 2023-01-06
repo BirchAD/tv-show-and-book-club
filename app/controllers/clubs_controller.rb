@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_club_access, except: [:create, :new]
+  before_action :authorize_club_access, except: %i[create new index]
 
   def new
     @club = Club.new
@@ -19,6 +19,10 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     @members = @club.memberships
+  end
+
+  def index
+    @clubs = current_user.clubs
   end
 
   private
