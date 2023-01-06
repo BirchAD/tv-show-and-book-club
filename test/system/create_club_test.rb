@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class ClubsTest < ApplicationSystemTestCase
+class CreateClubTest < ApplicationSystemTestCase
   def setup
     @user = users(:valid_user)
   end

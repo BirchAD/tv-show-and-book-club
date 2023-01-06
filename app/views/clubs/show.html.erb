@@ -1,1 +1,10 @@
 <h1><%= @club.name %></h1>
+<%= link_to "Add a friend to your club", new_club_membership_path(@club), class: "btn btn-flat" %>
+<div>
+  <h2>Club Members</h2>
+  <ul>
+    <% @members.each do |member| %>
+      <li><%= member.user.username %></li>
+    <% end %>
+  </ul>
+</div>
