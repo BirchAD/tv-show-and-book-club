@@ -1,5 +1,6 @@
 class ClubsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_club_access, except: %i[create new index]
 
   def new
     @club = Club.new
@@ -20,9 +21,19 @@ class ClubsController < ApplicationController
     @members = @club.memberships
   end
 
+  def index
+    @clubs = current_user.clubs
+  end
+
   private
 
   def club_params
     params.require(:club).permit(:name)
+  end
+
+  def authorize_club_access
+    # Verify that the user has a membership to the club
+    club = Club.find(params[:id])
+    redirect_to root_path, alert: 'You are not a member of this club.' unless current_user.clubs.include?(club)
   end
 end
