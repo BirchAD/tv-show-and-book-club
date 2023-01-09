@@ -16,7 +16,7 @@ class LandingPagesTest < ApplicationSystemTestCase
 
   test "User can login and sign up / login buttons won't be visible" do
     user_login
-    assert_selector "a", text: "Messages"
+    assert_selector "a", text: "Your Clubs"
     assert_selector "a", text: "Home"
     assert_no_selector "a", text: "Login"
     assert_no_selector "a", text: "Sign Up"

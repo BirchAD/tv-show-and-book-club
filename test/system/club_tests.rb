@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class CreateClubTest < ApplicationSystemTestCase
+class ClubTests < ApplicationSystemTestCase
   def setup
     @user = users(:valid_user)
   end
@@ -12,7 +12,13 @@ class CreateClubTest < ApplicationSystemTestCase
     assert_current_path new_club_path
     fill_in "Name", with: "The Crew"
     click_on "Start Your Club"
-    assert_text "The Crew"
+    assert_selector 'h1', text: "The Crew"
+    click_link "Your Clubs"
+    assert_current_path clubs_path
+    click_link "The Crew"
+    assert_current_path club_path(Club.last)
+    assert_selector 'h2', text: 'Club Members'
+    assert_selector 'li', text: @user.username.to_s
   end
 
   test 'a user not logged in should not be able to access create a new club' do

@@ -3,7 +3,7 @@
   <div class="cards">
     <% @clubs.each do |club| %>
       <div class="card">
-        <h4> <%= club.name %> </h4>
+        <h4> <%=link_to club.name, club_path(club) %> </h4>
       </div>
     <% end %>
   </div>

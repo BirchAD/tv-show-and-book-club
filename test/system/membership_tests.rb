@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class AddMembershipToClubsTest < ApplicationSystemTestCase
+class MembershipTests < ApplicationSystemTestCase
   def setup
     @user = users(:valid_user)
     @second_user = users(:another_user)
