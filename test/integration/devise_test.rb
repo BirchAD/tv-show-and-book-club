@@ -1,7 +1,5 @@
 require 'test_helper'
 
-require "test_helper"
-
 class DeviseTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:valid_user)
