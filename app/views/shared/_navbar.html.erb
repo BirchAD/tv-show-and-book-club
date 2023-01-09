@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-all">
+<nav class="navbar navbar-expand-sm navbar-light navbar-all">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
       <%= cl_image_tag("mcugmqch41ugrt6txp0g") %>
@@ -8,14 +8,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Add Club", new_club_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Your Clubs", clubs_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/dm6g22zui/image/upload/v1669386147/iftyrovfzfvfv3m9bdrx.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -32,5 +35,5 @@
         <% end %>
       </ul>
     </div>
-  </div>
-</div>
+  </nav>
+</nav>
