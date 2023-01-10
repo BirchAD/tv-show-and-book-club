@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :clubs, only: %i[new create show index] do
     resources :memberships, only: %i[new create]
   end
+  get "/profile", to: "users#show"
 end
