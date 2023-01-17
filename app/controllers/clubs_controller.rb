@@ -25,6 +25,12 @@ class ClubsController < ApplicationController
     @clubs = current_user.clubs
   end
 
+  def destroy
+    @club = Club.find(params[:id])
+    @club.destroy
+    redirect_to clubs_url, notice: 'Club was successfully deleted.'
+  end
+
   private
 
   def club_params

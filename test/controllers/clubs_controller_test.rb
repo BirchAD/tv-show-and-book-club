@@ -45,4 +45,11 @@ class ClubsControllerTest < ActionDispatch::IntegrationTest
     get club_url(@club)
     assert_response :success
   end
+
+  test 'should destroy club' do
+    login_as @user
+    assert_difference('Club.count', -1) do
+      delete club_path(@club)
+    end
+  end
 end
