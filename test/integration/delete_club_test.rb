@@ -30,4 +30,22 @@ class DeleteClubTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "div.card", text: @club.name, count: 0
   end
+
+  test 'club show should have a delete club button and delete the club' do
+    login_as @user
+    new_club = Club.create(name: "test", user: @user)
+    get club_path(new_club)
+    assert_select 'a', text: 'Delete Club'
+    assert_difference('Club.count', -1) do
+      assert_difference('Membership.count', -1) do
+        delete club_path(new_club)
+      end
+    end
+    assert_redirected_to clubs_path
+    assert_equal 'Club was successfully deleted.', flash[:notice]
+    get clubs_path
+    assert_response :success
+    assert_select "div.card", text: @club.name, count: 0
+  end
+
 end
