@@ -1,4 +1,6 @@
 ## A Rails Web Application
+
+
 Users can:
   * Create a club
   * Invite friends to the club
