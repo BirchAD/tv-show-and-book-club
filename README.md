@@ -1,5 +1,6 @@
 ## A Rails Web Application
 
+#Built following TDD principles using RSpec and MiniTest
 
 Users can:
   * Create a club
